@@ -14,14 +14,14 @@ const Board = (props: BoardPropType) => {
         const row = Math.floor(i / numCols);
         const column = i % numCols;
         return {
-            position: new Vector3(column - (numCols / 2 - 0.5), 0, row - (numRows / 2 - 0.5)),
+            position: new Vector3(column - (numCols / 2), 0, row - (numRows / 2)),
             row,
             column
         };
     });
 
     const meshes = cells.map((cell, index) => (
-        <Cell key={index} position={cell.position} color={(cell.column + cell.row) % 2 === 0 ? "black" : "white"} />
+        <Cell key={index} position={cell.position} color={(cell.column + cell.row) % 2 === 0 ? "white" : "lightgray"} column={cell.column} row={cell.row} />
     ));
 
     return <>{meshes}</>;
