@@ -7,16 +7,18 @@ import { ISquaretModel } from "../models/square-model";
 import { ICharacterModel } from "../models/character-model";
 import cellReducer from "./cell/cell-reducer"
 import characterReducer from "./character/character-reducer"
+import settingsReducer, { SettingReduxProp } from "./settings/settings-reducer"
 
 export interface ApplicationState {
     cellReducer: IBaseReducer<ISquaretModel>
     characterReducer: IBaseReducer<ICharacterModel>
+    settingsReducer: SettingReduxProp
 }
 
 const persistConfig = {
     key: "root",
     storage: storage,
-    whitelist: ["cellReducer", "characterReducer"],
+    whitelist: ["cellReducer", "characterReducer", "settingsReducer"],
 };
 
 const composeEnhancers =
@@ -24,7 +26,8 @@ const composeEnhancers =
 
 const presistedReducer = persistReducer(persistConfig, combineReducers({
     cellReducer,
-    characterReducer
+    characterReducer,
+    settingsReducer
 }));
 
 const store: Store<ApplicationState> = createStore(
