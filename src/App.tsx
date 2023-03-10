@@ -9,8 +9,13 @@ function App() {
     <Suspense fallback={<div>Loading... </div>}>
       <Provider store={store}>
         <PersistGate persistor={persistor}>
-          <div style={{ width: "100%", height: "100%" }}>
-            <Scene />
+          <div style={{ width: "100%", height: "100%", display: "flex", flex: 1, flexDirection: "row" }}>
+            <div style={{ flex: 5 }}>
+              <Scene />
+            </div>
+            <div style={{ flex: 1 }}>
+              test
+            </div>
           </div>
         </PersistGate>
       </Provider>

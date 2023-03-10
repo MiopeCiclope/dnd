@@ -4,23 +4,27 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { IBaseReducer } from "./base-types";
 import { ISquaretModel } from "../models/square-model";
+import { ICharacterModel } from "../models/character-model";
 import cellReducer from "./cell/cell-reducer"
+import characterReducer from "./character/character-reducer"
 
 export interface ApplicationState {
     cellReducer: IBaseReducer<ISquaretModel>
+    characterReducer: IBaseReducer<ICharacterModel>
 }
 
 const persistConfig = {
     key: "root",
     storage: storage,
-    whitelist: ["cellReducer"],
+    whitelist: ["cellReducer", "characterReducer"],
 };
 
 const composeEnhancers =
     (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const presistedReducer = persistReducer(persistConfig, combineReducers({
-    cellReducer
+    cellReducer,
+    characterReducer
 }));
 
 const store: Store<ApplicationState> = createStore(
