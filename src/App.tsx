@@ -10,7 +10,7 @@ function App() {
       <Provider store={store}>
         <PersistGate persistor={persistor}>
           <div style={{ width: "100%", height: "100%", display: "flex", flex: 1, flexDirection: "row" }}>
-            <div style={{ flex: 5 }}>
+            <div style={{ flex: 5, maxWidth: "70%" }}>
               <Scene />
             </div>
             <div style={{ flex: 1 }}>
@@ -19,7 +19,7 @@ function App() {
           </div>
         </PersistGate>
       </Provider>
-    </Suspense>
+    </Suspense >
 
 
   );
