@@ -15,7 +15,6 @@ interface DispatchProps {
 type ICellProp = CellPropType & DispatchProps;
 
 const Cell = (props: ICellProp) => {
-    console.log("changed")
     const { cell, updateCell } = props
     const [color, setColor] = useState(cell.color)
     const material = new MeshStandardMaterial({ roughness: .3, metalness: .1, color: color })
