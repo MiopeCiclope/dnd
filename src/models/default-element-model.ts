@@ -6,4 +6,5 @@ export interface IDefaultElementModel {
     color: string
     row: number
     column: number
+    isSelected: boolean
 }

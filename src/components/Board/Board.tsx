@@ -36,14 +36,17 @@ const Board = (props: IBoardProp) => {
                 color: (column + row) % 2 === 0 ? "white" : "lightgray",
                 row: row,
                 column: column,
-                highlightMoveElement: false
+                highlightMoveElement: false,
+                isSelected: false
             } as ISquaretModel;
         });
         saveCells(cells)
     }, []);
 
+
+
     return <>{cellList.map((cell, index) => (
-        <Cell key={index} position={cell.position} color={(cell.column + cell.row) % 2 === 0 ? "white" : "lightgray"} column={cell.column} row={cell.row} />
+        <Cell key={index} cell={cell} />
     ))}</>;
 };
 

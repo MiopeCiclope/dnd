@@ -6,7 +6,7 @@ import { Vector3, PlaneGeometry, ImageUtils, TextureLoader, CircleGeometry } fro
 import Piece from './Piece/Piece'
 
 const Scene = () => {
-    const defaultSize = 14
+    const defaultSize = 2
     const colorMap = useLoader(TextureLoader, 'test.jpeg')
 
     return (
